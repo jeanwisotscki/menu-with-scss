@@ -1,0 +1,141 @@
+header#header {
+  height: 70px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #e7e7e7;
+  padding: 1rem;
+
+  #logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    a {
+      display: block;
+      padding: 1rem;
+    }
+  }
+
+  nav#nav {
+    #btn-mobile {
+      display: none;
+    }
+
+    ul#menu {
+      display: flex;
+      list-style: none;
+      gap: 0.5rem;
+
+      a {
+        display: block;
+        padding: 0.5rem;
+      }
+
+      /* Dropdown
+      *******************/
+      [data-dropdown] {
+        position: relative;
+
+        .dropdown-menu {
+          display: none;
+          position: absolute;
+          background-color: #e7e7e7;
+          list-style: none;
+          border: 1px solid black;
+          z-index: 999;
+        }
+
+        &:hover .dropdown-menu,
+        &.active .dropdown-menu {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+/* Media queries
+*************************/
+@media (max-width: 768px) {
+  header#header {
+    /* Menu mobile
+    *****************/
+    nav#nav {
+
+      #btn-mobile {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+      }
+
+      ul#menu {
+        display: block;
+        position: absolute;
+        width: 50%;
+        top: 70px;
+        right: 0;
+        background: #e7e7e7;
+        height: 0px;
+        transition: 0.3s;
+        z-index: 1000;
+        visibility: hidden;
+        overflow-y: hidden;
+
+        a {
+          font-weight: bold;
+          padding: 1rem 1rem;
+          margin: 0 1rem;
+          border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Dropdown
+        *******************/
+        [data-dropdown] {
+          .dropdown-menu {
+            position: static;
+          }
+        }
+      }
+
+      &.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+      }
+
+      #hamburguer {
+        width: 20px;
+        border-top: 2px solid;
+
+        &::after,
+        &::before {
+          content: "";
+          display: block;
+          position: relative;
+          width: 20px;
+          height: 2px;
+          margin-top: 5px;
+          background-color: currentColor;
+          transition: 0.3s;
+        }
+      }
+
+      &.active #hamburguer {
+        border-top-color: transparent;
+      }
+
+      &.active #hamburguer::before {
+        transform: rotate(135deg);
+      }
+
+      &.active #hamburguer::after {
+        transform: rotate(-135deg);
+        top: -7px;
+      }
+    }
+  }
+}

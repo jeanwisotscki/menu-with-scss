@@ -1,0 +1,163 @@
+header#header {
+  height: 70px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: #e7e7e7;
+  padding: 1rem;
+}
+
+header#header #logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header#header #logo a {
+  display: block;
+  padding: 1rem;
+}
+
+header#header nav#nav #btn-mobile {
+  display: none;
+}
+
+header#header nav#nav ul#menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  gap: 0.5rem;
+  /* Dropdown
+      *******************/
+}
+
+header#header nav#nav ul#menu a {
+  display: block;
+  padding: 0.5rem;
+}
+
+header#header nav#nav ul#menu [data-dropdown] {
+  position: relative;
+}
+
+header#header nav#nav ul#menu [data-dropdown] .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #e7e7e7;
+  list-style: none;
+  border: 1px solid black;
+  z-index: 999;
+}
+
+header#header nav#nav ul#menu [data-dropdown]:hover .dropdown-menu,
+header#header nav#nav ul#menu [data-dropdown].active .dropdown-menu {
+  display: block;
+}
+
+/* Media queries
+*************************/
+@media (max-width: 768px) {
+  header#header {
+    /* Menu mobile
+    *****************/
+  }
+  header#header nav#nav #btn-mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    gap: 0.5rem;
+  }
+  header#header nav#nav ul#menu {
+    display: block;
+    position: absolute;
+    width: 50%;
+    top: 70px;
+    right: 0;
+    background: #e7e7e7;
+    height: 0px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    z-index: 1000;
+    visibility: hidden;
+    overflow-y: hidden;
+    /* Dropdown
+        *******************/
+  }
+  header#header nav#nav ul#menu a {
+    font-weight: bold;
+    padding: 1rem 1rem;
+    margin: 0 1rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  }
+  header#header nav#nav ul#menu [data-dropdown] .dropdown-menu {
+    position: static;
+  }
+  header#header nav#nav.active #menu {
+    height: calc(100vh - 70px);
+    visibility: visible;
+  }
+  header#header nav#nav #hamburguer {
+    width: 20px;
+    border-top: 2px solid;
+  }
+  header#header nav#nav #hamburguer::after, header#header nav#nav #hamburguer::before {
+    content: "";
+    display: block;
+    position: relative;
+    width: 20px;
+    height: 2px;
+    margin-top: 5px;
+    background-color: currentColor;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  header#header nav#nav.active #hamburguer {
+    border-top-color: transparent;
+  }
+  header#header nav#nav.active #hamburguer::before {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  header#header nav#nav.active #hamburguer::after {
+    -webkit-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+    top: -7px;
+  }
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+/*# sourceMappingURL=main.css.map */
